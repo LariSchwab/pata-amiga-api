@@ -1,0 +1,26 @@
+[project]
+name = "pata-amiga-api"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Larissa Schwab",email = "larissa.schwab@yahoo.com.br"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic (>=2.11.7,<3.0.0)",
+    "sqlalchemy (>=2.0.43,<3.0.0)",
+    "dotenv (>=0.9.9,<0.10.0)",
+    "sqlalchemy-utils (>=0.41.2,<0.42.0)",
+    "pymysql (>=1.1.2,<2.0.0)",
+    "cryptography (>=45.0.6,<46.0.0)",
+    "uvicorn (>=0.35.0,<0.36.0)"
+]
+
+[tool.poetry]
+packages = [{include = "pata_amiga_api", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
