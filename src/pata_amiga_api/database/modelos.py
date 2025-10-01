@@ -10,12 +10,14 @@ from src.pata_amiga_api.database.banco_dados import Base
 # from sqlalchemy import Column, Integer, String, DateTime
 # from src.pata_amiga_api.database.banco_dados import Base
 
-class AlunoEntidade(Base):
-    __tablename__ = "alunos"
+class UsuarioEntidade(Base):
+    __tablename__ = "usuarios"
 
-    id: int = Column(Integer, primary_key=True, index=True)
-    nome: str = Column(String(20), nullable=False)
-    sobrenome: str = Column(String(50), nullable=False)
-    cpf: str = Column(String(14), nullable=False)
-    data_nascimento: date = Column(Date(), nullable=False, name="data_nascimento")
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    nome = Column(String(150), nullable=False)
+    cpf = Column(String(14), nullable=False, unique=True, index=True)
+    email = Column(String(255), nullable=False, unique=True, index=True)
+    telefone = Column(String(30))
+
+
 
