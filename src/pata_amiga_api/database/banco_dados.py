@@ -10,11 +10,11 @@ from sqlalchemy_utils import create_database, database_exists
 # Carregar o arquivo .env com as configurações do banco de dados
 load_dotenv()
 
-DB_USER = os.getenv("DB_USER")
-DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_USER = os.getenv("DB_USER", "root")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "password")
 DB_HOST = os.getenv("DB_HOST", "127.0.0.1")
 DB_PORT = os.getenv("DB_PORT", 3306)
-DB_NAME = os.getenv("DB_NAME", "pata-amiga")
+DB_NAME = os.getenv("DB_NAME", "pata_amiga")
 
 SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 

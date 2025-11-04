@@ -1,33 +1,32 @@
 from pydantic import BaseModel, Field, EmailStr
-from datetime import date
 from typing import Optional
 
 # Entidade
-class Usuario(BaseModel):
+class UsuarioPJ(BaseModel):
     id: int = Field()
     nome: str = Field()
-    cpf: str = Field()
+    ong: str = Field()
+    cnpj: str = Field()
     telefone: str = Field()
     email: EmailStr = Field()
-    dataNascimento: date = Field()
 
     class Config:
-        from_atributte = True
+        from_attributes = True
 
-class UsuarioCadastro(BaseModel):
+class UsuarioPJCadastro(BaseModel):
     nome: str = Field()
-    cpf: str = Field()
+    ong: str = Field()
+    cnpj: str = Field()
     telefone: str = Field()
     email: EmailStr = Field()
     senha: str = Field(min_length=6)
-    dataNascimento: date = Field()
 
-class UsuarioEditar(BaseModel):
+class UsuarioPJEditar(BaseModel):
     nome: str = Field()
-    cpf: str = Field()
+    ong: str = Field()
+    cnpj: str = Field()
     telefone: str = Field()
     email: EmailStr = Field()
     senha: Optional[str] = Field(
         default=None, description="Nova senha (se enviado, será hasheada)"
     )
-    dataNascimento: date = Field()
